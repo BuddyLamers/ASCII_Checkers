@@ -2,9 +2,10 @@ class Piece
   attr_accessor :king, :location
   attr_reader :color, :board
 
-  def initialize(location, color)
+  def initialize(location, board, color)
     @location = location
     @color = color
+    @board = board
   end
 
   def perform_slide
@@ -16,8 +17,8 @@ class Piece
     #and remove jumped piece from the board
   end
 
-  def inspect
-    'B' if color == :B
-    'W' if color == :W
+  def to_s
+    return ' b' if color == :B
+    return ' r'.colorize(:red) if color == :R
   end
 end
