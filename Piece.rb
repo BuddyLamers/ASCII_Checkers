@@ -40,6 +40,7 @@ class Piece
     self.position = end_pos
     board[old_pos] = nil
 
+    maybe_promote
     #remove later
     board.render
     true
@@ -61,7 +62,7 @@ class Piece
   end
 
   def perform_jump(dir)
-    debugger
+    #debugger
     return false unless valid_if_not_king?(dir)
     end_pos = direction_to_position(dir)
     jumped_pos = direction_to_position(dir[0..1])
@@ -74,11 +75,20 @@ class Piece
     board[old_pos] = nil
     board[jumped_pos] = nil
     @kill_count += 1
+    maybe_promote
     board.render
     true
   end
 
+  def maybe_promote
+    debugger
+    @king = true if (color == :R && position[0] == 0) ||
+                      (color == :B && position[0] == 7)
+  end
+
   def to_s
+    return ' B' if king && color == :B
+    return ' R'.colorize(:red) if king && color == :R
     return ' b' if color == :B
     return ' r'.colorize(:red) if color == :R
   end

@@ -1,4 +1,4 @@
-b = Game.new
+b = Board.new
 b[[5,0]].perform_slide('ur')
 b[[4,1]].perform_slide('ur')
 b[[2,3]].perform_jump('dlj')
