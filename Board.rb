@@ -35,11 +35,8 @@ class Board
           setup_row(i, :R, offset)
           offset = (offset == 1 ? 0 : 1)
         end
-        # self.grid[(BOARD_SIZE - CHECKER_ROWS)...BOARD_SIZE].each_with_index do |row, i|
-#           setup_row(row, i, :R, offset)
-#           offset = (offset == 1 ? 0 : 1)
-#         end
     end
+    render
     nil
   end
 

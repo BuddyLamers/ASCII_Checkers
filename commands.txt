@@ -1,0 +1,9 @@
+b = Game.new
+b[[5,0]].perform_slide('ur')
+b[[4,1]].perform_slide('ur')
+b[[2,3]].perform_jump('dlj')
+b[[1,2]].perform_slide('dr')
+b[[5,2]].perform_jump('ulj')
+b[[3,0]].perform_jump('urj')
+b[[1,2]].king = true
+b[[1,2]].perform_jump('drj')
