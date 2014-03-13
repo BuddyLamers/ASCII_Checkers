@@ -1,4 +1,3 @@
-require 'colorize'
 BOARD_SIZE = 8
 CHECKER_ROWS = 3
 
@@ -59,7 +58,7 @@ class Board
     nil
   end
 
-  def display
+  def render
     row_count = 0
     puts " 0 1 2 3 4 5 6 7"
     bg_col = :grey
@@ -71,17 +70,11 @@ class Board
         print "  ".colorize(:background => bg_col) if sq.nil?
         print sq.to_s.colorize(:background => bg_col)
         bg_col = (bg_col == :grey ? :white : :grey)
-
       end
        puts
     end
     nil
   end
-
-  def color_board
-    bg_color = :grey
-  end
-
 
   def valid_pos?(pos)
     x, y = pos[0], pos[1]
@@ -105,27 +98,4 @@ class Board
     #uses the []= of Array on that row (which is an array) for col
     grid[row][col] = piece
   end
-end
-
-
-
-class String
-def black;          "\033[30m#{self}\033[0m" end
-def red;            "\033[31m#{self}\033[0m" end
-def green;          "\033[32m#{self}\033[0m" end
-def  brown;         "\033[33m#{self}\033[0m" end
-def blue;           "\033[34m#{self}\033[0m" end
-def magenta;        "\033[35m#{self}\033[0m" end
-def cyan;           "\033[36m#{self}\033[0m" end
-def gray;           "\033[37m#{self}\033[0m" end
-def bg_black;       "\033[40m#{self}\0330m"  end
-def bg_red;         "\033[41m#{self}\033[0m" end
-def bg_green;       "\033[42m#{self}\033[0m" end
-def bg_brown;       "\033[43m#{self}\033[0m" end
-def bg_blue;        "\033[44m#{self}\033[0m" end
-def bg_magenta;     "\033[45m#{self}\033[0m" end
-def bg_cyan;        "\033[46m#{self}\033[0m" end
-def bg_gray;        "\033[47m#{self}\033[0m" end
-def bold;           "\033[1m#{self}\033[22m" end
-def reverse_color;  "\033[7m#{self}\033[27m" end
 end
