@@ -1,0 +1,5 @@
+require "debugger"
+require_relative "Piece"
+require_relative "Board"
+require_relative "Game"
+require_relative "Human_Player"
