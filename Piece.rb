@@ -81,7 +81,6 @@ class Piece
   end
 
   def maybe_promote
-    debugger
     @king = true if (color == :R && position[0] == 0) ||
                       (color == :B && position[0] == 7)
   end
